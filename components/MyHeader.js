@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {View} from 'react-native'
-import {Header} from 'react-native-elements'
+import {Header, Icon} from 'react-native-elements'
 
 export default class MyHeader extends React.Component{
     
@@ -14,7 +14,10 @@ export default class MyHeader extends React.Component{
         return(
             <View>
                 <Header 
-                centerComponent = {{text: this.props.title, style: {color: 'white', fontSize: '25', fontWeight: 'bold'}}}
+                leftComponent = {<Icon name = 'bars' type = 'font-awesome' color = 'red' onPress = {()=> 
+                    this.props.navigation.toggleDrawer()
+                } />}
+                centerComponent = {{text: this.props.title, style: {color: 'white', fontSize: 25, fontWeight: 'bold'}}}
                 backgroundColor = 'cyan'
                 />
             </View>

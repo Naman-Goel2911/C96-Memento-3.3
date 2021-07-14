@@ -1,9 +1,22 @@
 import * as React from 'react'
 import { Text, View } from 'react-native'
 import MyHeader from '../components/MyHeader'
-import {Calendar} from 'react-google-calendar-api'
+import Calendar from 'react-calendar'
 
 export default class CalendarScreen extends React.Component{
+
+    constructor()
+    {
+        super()
+        this.state = {
+            onChange: new Date(),
+            value: new Date(),
+            selectedDate: '',
+            selectedMonth: '',
+            selectedYear: ''
+        }
+    }
+
     render()
     {
         return(
@@ -15,7 +28,7 @@ export default class CalendarScreen extends React.Component{
                     />
                 </View>
                 <View>
-                    <Calendar apiKey={'AIzaSyAo0QMcC3XQiUjMnruBdvhl_w6o4zC9Grw'} calendars={'vakulg@gmail.com'} />
+                    <Calendar value = {this.state.value}/>
                 </View>
             </View>
         )
