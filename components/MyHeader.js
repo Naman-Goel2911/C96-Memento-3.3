@@ -14,11 +14,11 @@ export default class MyHeader extends React.Component{
         return(
             <View>
                 <Header 
-                leftComponent = {<Icon name = 'bars' type = 'font-awesome' color = 'red' onPress = {()=> 
+                leftComponent = {<Icon name = 'bars' type = 'font-awesome' color = 'purple' onPress = {()=> 
                     this.props.navigation.toggleDrawer()
                 } />}
-                centerComponent = {{text: this.props.title, style: {color: 'white', fontSize: 25, fontWeight: 'bold'}}}
-                backgroundColor = 'cyan'
+                centerComponent = {{text: this.props.title, style: {color: 'white', fontSize: 20, fontWeight: 'bold'}}}
+                backgroundColor = '#6fc0b8'
                 />
             </View>
         )

@@ -23,14 +23,17 @@ export default class CalendarScreen extends React.Component{
             <View>
                 <View>
                     <MyHeader 
-                    title = {'Memento-Calendar'}
+                    title = {'Calendar'}
                     navigation = {this.props.navigation}
                     />
-                </View>
-                <View>
-                    <Calendar value = {this.state.value}/>
-                </View>
+                </View> 
             </View>
         )
     }
 }
+
+/*
+  <View>
+  <Calendar value = {this.state.value}/>
+  </View> 
+*/
