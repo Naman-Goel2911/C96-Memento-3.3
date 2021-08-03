@@ -6,7 +6,10 @@ import SettingsScreen from '../screens/SettingsScreen'
 import {Icon} from 'react-native-elements'
 import CalendarScreen from '../screens/CalendarScreen'
 
+//the code below makes the contents of the side drawer
+
 export const AppDrawerNavigator = createDrawerNavigator({
+    //this is for the home screen which is the main calendar screen
     Home: {
         screen: CalendarScreen,
         navigationOptions: {
@@ -16,6 +19,7 @@ export const AppDrawerNavigator = createDrawerNavigator({
             />
         }
     },
+    //this is for a bottom tab navigator which contains the screens to view and add shopping items
     ShoppingList: {
         screen: AppTabNavigator,
         navigationOptions: {
@@ -25,6 +29,7 @@ export const AppDrawerNavigator = createDrawerNavigator({
             />
         }
     },
+    //this is for the settings
     Settings: {
         screen: SettingsScreen,
         navigationOptions: {

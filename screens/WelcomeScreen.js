@@ -5,7 +5,6 @@ import * as firebase from 'firebase'
 import db from '../config'
 import {RFValue} from 'react-native-responsive-fontsize'
 
-
 export default class WelcomeScreen extends React.Component{
     constructor(props)
     {

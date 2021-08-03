@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {View, Text, TextInput, StyleSheet, TouchableOpacity} from 'react-native'
+import {View, Text, TextInput, StyleSheet, TouchableOpacity, KeyboardAvoidingView} from 'react-native'
 import MyHeader from '../components/MyHeader'
 import db from '../config'
 import firebase from 'firebase'
@@ -23,6 +23,7 @@ export default class SettingsScreen extends React.Component{
         this.getUserDetails()
     }
 
+    //this function gets the details of the users from the db and sets them in states
     getUserDetails = () => {
         var user = firebase.auth().currentUser;
         var email = user.email
@@ -42,6 +43,7 @@ export default class SettingsScreen extends React.Component{
         })
     }
 
+    //this functions updates the deatils of the user in the db if the user changes it 
     updateUserDetails = () => {
         db.collection('users').doc(this.state.docId).update({
             first_name: this.state.firstName,
@@ -53,10 +55,12 @@ export default class SettingsScreen extends React.Component{
         alert('Profile updated successfully')
     }
 
+    //this renders all the text input boxes and buttons for all the details of the user
     render()
     {
         return(
             <View style = {styles.container}>
+                <KeyboardAvoidingView>
                <View style = {{flex: 0.12}}>
                 <MyHeader 
                 title = 'Settings'
@@ -124,6 +128,7 @@ export default class SettingsScreen extends React.Component{
                         <Text style = {styles.buttonText}>Save</Text>
                     </TouchableOpacity>
                 </View>
+                </KeyboardAvoidingView>
             </View>
         )
     }

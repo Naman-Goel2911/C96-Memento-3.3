@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Text, View } from 'react-native'
 import MyHeader from '../components/MyHeader'
-import Calendar from 'react-calendar'
 
 export default class CalendarScreen extends React.Component{
 
@@ -17,6 +16,8 @@ export default class CalendarScreen extends React.Component{
         }
     }
 
+    //this screen is currently under construction :)
+
     render()
     {
         return(
@@ -31,9 +32,3 @@ export default class CalendarScreen extends React.Component{
         )
     }
 }
-
-/*
-  <View>
-  <Calendar value = {this.state.value}/>
-  </View> 
-*/

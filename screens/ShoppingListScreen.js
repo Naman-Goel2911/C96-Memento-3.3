@@ -1,3 +1,4 @@
+//this screen does not work properly
 import * as React from 'react'
 import { Text, View } from 'react-native'
 import MyHeader from '../components/MyHeader'
@@ -11,10 +12,11 @@ export default class ShoppingListScreen extends React.Component{
 
     constructor(props)
     {
-        super(props)
+        super(props)    
         this.state = {
             userId: firebase.auth().currentUser.email,
-            allItems: []
+            allItems: [],
+            docId: ''
         }
         this.requestRef = null
     }
@@ -27,6 +29,7 @@ export default class ShoppingListScreen extends React.Component{
         this.requestRef()
     }
 
+    //this function gets the list of all the items that the user has added in the database that are marked as added (I think there must be a mistake in this function that is why the screen is not working)
     getRequestedShoppingList = () => {
         this.requestRef = db.collection('shoppingItems').where('item_status', '==', 'added')
         .where('user_id', '==', this.state.userId)
@@ -43,10 +46,12 @@ export default class ShoppingListScreen extends React.Component{
         })
     }
 
+    //I don't think this does anything but I added this because it was in BookSanta
     keyExtractor = (item, index) => {
         index.toString()
     }
 
+    //I don't think this does anything but I added this because it was in BookSanta
     renderItem = ({item, i}) => {
         return (
             <ListItem 
@@ -61,6 +66,7 @@ export default class ShoppingListScreen extends React.Component{
     }
 
 
+    //this renders the swipable flat list and if you have not added anything it shows nothing
     render()
     {
         return(
@@ -83,7 +89,7 @@ export default class ShoppingListScreen extends React.Component{
                         :
                         (
                            <SwipableFlatList 
-                           allNotifications = {this.state.allItems}
+                           allItems = {this.state.allItems}
                            />
                         )
                     }

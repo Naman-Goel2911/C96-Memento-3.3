@@ -20,23 +20,26 @@ export default class AddingShoppingListScreen extends React.Component{
         }
     }
 
+    //this creates a unique id
     createUniqueId()
     {
         return Math.random().toString(36).substring(7) 
     }
 
-    addRequest = async (itemName, price) => {
+    //this function adds the request
+    addRequest = (itemName, price) => {
         var userId = this.state.userId
         var randomRequestId = this.createUniqueId()
+        //this adds it to the database
         db.collection('shoppingItems').add({
             'user_id': userId,
             'item_name': itemName,
             'price': price,
             'request_id': randomRequestId,
             item_status: 'added',
-            docId: doc.id
         })
-        
+    
+        //this resets the states
         this.setState({
             itemName: '',
             price: '',
@@ -47,6 +50,7 @@ export default class AddingShoppingListScreen extends React.Component{
         return alert('Item added to the list');
     }
 
+    //this renders all the text inputs boxes and the add item button
     render()
     {
         return (

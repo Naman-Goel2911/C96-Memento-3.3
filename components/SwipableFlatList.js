@@ -14,6 +14,7 @@ export default class SwipableFlatList extends React.Component{
         }
     }
 
+    //this is the function which marks the status of the item as bought which removes it from the screen
     updateMarkAsRead = item => {
         db.collection("shoppingItems")
           .doc(item.doc_id)
@@ -22,6 +23,7 @@ export default class SwipableFlatList extends React.Component{
           });
     };
 
+    //this function will take the data or the item that we swiped and then give it to the other function for it to be marked as bought
     onSwipeValueChange = swipeData => {
         var allItems = this.state.allItems;
         const { key, value } = swipeData;
@@ -33,8 +35,9 @@ export default class SwipableFlatList extends React.Component{
         }
     };
 
+    //this is the function which renders the items and contains them 
     renderItem = data => (
-        <Animated.View>
+        <View>
           <ListItem
             leftElement={<Icon name="item" type="font-awesome" color="#696969" />}
             title={data.item.item_name}
@@ -42,9 +45,10 @@ export default class SwipableFlatList extends React.Component{
             subtitle={data.item.price}
             bottomDivider
           />
-        </Animated.View>
+        </View>
     );
 
+    //this is the text that comes when we swipe the item
     renderHiddenItem = () => (
         <View style={styles.rowBack}>
           <View style={[styles.backRightBtn, styles.backRightBtnRight]}>
@@ -53,6 +57,7 @@ export default class SwipableFlatList extends React.Component{
         </View>
       );
 
+    //this renders the items
     render() {
         return (
           <View style={styles.container}>
