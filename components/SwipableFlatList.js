@@ -37,7 +37,7 @@ export default class SwipableFlatList extends React.Component{
 
     //this is the function which renders the items and contains them 
     renderItem = data => (
-        <View>
+        <Animated.View>
           <ListItem
             leftElement={<Icon name="item" type="font-awesome" color="#696969" />}
             title={data.item.item_name}
@@ -45,7 +45,7 @@ export default class SwipableFlatList extends React.Component{
             subtitle={data.item.price}
             bottomDivider
           />
-        </View>
+        </Animated.View>
     );
 
     //this is the text that comes when we swipe the item
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     backTextWhite: {
       color: "#FFF",
       fontWeight: "bold",
-      fontSize: RFValue(15),
+      fontSize: 15,
       textAlign: "center",
       alignSelf: "flex-start"
     },

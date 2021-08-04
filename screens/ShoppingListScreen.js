@@ -43,20 +43,19 @@ export default class ShoppingListScreen extends React.Component{
             this.setState({
                 allItems: allItems
             })
+            console.log(allItems)
         })
     }
 
     //I don't think this does anything but I added this because it was in BookSanta
-    keyExtractor = (item, index) => {
-        index.toString()
-    }
+    keyExtractor = (item, index) => index.toString()
 
     //I don't think this does anything but I added this because it was in BookSanta
-    renderItem = ({item, i}) => {
+    renderItem = ({item, index}) => {
         return (
             <ListItem 
-            key = {i}
-            leftElement = {<Icon name = 'item' type = 'font-awesome' color = 'white' />}
+            key = {index}
+            leftElement = {<Icon name = 'gift' type = 'font-awesome' color = 'white' />}
             title = {item.item_name}
             subtitle = {item.price}
             titleStyle = {{color: 'black', fontWeight: 'bold'}}

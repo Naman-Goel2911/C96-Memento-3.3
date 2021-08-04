@@ -11,7 +11,7 @@ import CalendarScreen from '../screens/CalendarScreen'
 export const AppDrawerNavigator = createDrawerNavigator({
     //this is for the home screen which is the main calendar screen
     Home: {
-        screen: CalendarScreen,
+        screen: AppTabNavigator,
         navigationOptions: {
             drawerIcon: <Icon 
             name = 'home'
@@ -20,8 +20,8 @@ export const AppDrawerNavigator = createDrawerNavigator({
         }
     },
     //this is for a bottom tab navigator which contains the screens to view and add shopping items
-    ShoppingList: {
-        screen: AppTabNavigator,
+    Calendar: {
+        screen: CalendarScreen,
         navigationOptions: {
             drawerIcon: <Icon 
             name = 'gift'
